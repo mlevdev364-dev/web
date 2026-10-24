@@ -1,0 +1,34 @@
+<?php
+header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+
+$dataDir = __DIR__ . '/data';
+if (!is_dir($dataDir)) {
+    mkdir($dataDir, 0775, true);
+}
+
+$filePath = $dataDir . '/visitors.txt';
+$counter = 0;
+if (is_file($filePath)) {
+    $content = trim((string) file_get_contents($filePath));
+    if ($content !== '') {
+        $counter = (int) $content;
+    }
+}
+
+$trackRequest = isset($_GET['track']) || isset($_POST['track']);
+$cookieName = 'saka_visitor';
+$alreadySeen = isset($_COOKIE[$cookieName]) && $_COOKIE[$cookieName] === '1';
+
+if ($trackRequest && !$alreadySeen) {
+    $counter += 1;
+    file_put_contents($filePath, (string) $counter, LOCK_EX);
+    setcookie($cookieName, '1', time() + (60 * 60 * 24 * 365), '/', '', false, true);
+}
+
+echo json_encode([
+    'count' => $counter,
+    'tracked' => $trackRequest ? true : false,
+    'unique' => $alreadySeen ? false : true,
+]);

@@ -1,151 +1,346 @@
-// SAKA — site interactions
-document.addEventListener('DOMContentLoaded', function () {
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SAKA — Futuristic Business Ecosystem</title>
+<meta name="description" content="SAKA is an all-in-one platform for building, running, and scaling modern businesses." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+</head>
+<body>
 
-  /* Navbar background on scroll */
-  var nav = document.querySelector('.nav');
-  function onScroll() {
-    if (!nav) return;
-    if (window.scrollY > 24) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
-  window.addEventListener('scroll', onScroll);
-  onScroll();
+<div class="bg-fx">
+  <div class="bg-grid"></div>
+  <span class="bg-orb orb-1"></span>
+  <span class="bg-orb orb-2"></span>
+  <span class="bg-orb orb-3"></span>
+  <span class="bg-orb orb-4"></span>
+</div>
 
-  /* Mobile menu toggle */
-  var burger = document.getElementById('burgerBtn');
-  var mobileNav = document.getElementById('mobileNav');
-  if (burger && mobileNav) {
-    burger.addEventListener('click', function () {
-      mobileNav.classList.toggle('open');
-      var openIcon = burger.querySelector('.i-menu');
-      var closeIcon = burger.querySelector('.i-close');
-      if (openIcon && closeIcon) {
-        openIcon.style.display = mobileNav.classList.contains('open') ? 'none' : 'block';
-        closeIcon.style.display = mobileNav.classList.contains('open') ? 'block' : 'none';
-      }
-    });
-    mobileNav.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { mobileNav.classList.remove('open'); });
-    });
-  }
+<!-- ===================== NAVBAR ===================== -->
+<header class="nav glass">
+  <a href="#home" class="nav-brand">
+    <span class="mark sm"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+    SAKA <span class="tag">OMNI</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#home" class="active" data-i18n="nav_home">Home</a>
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="lang-toggle" role="switch" aria-checked="false" aria-label="Switch language / Ganti bahasa">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-opt" data-side="id">ID</span>
+        <span class="lang-toggle-opt" data-side="en">EN</span>
+        <span class="lang-toggle-knob"></span>
+      </span>
+    </button>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav_getstarted">Get Started</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu">
+      <svg class="i-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="i-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="nav-mobile glass" id="mobileNav">
+  <a href="#home" data-i18n="nav_home">Home</a>
+  <a href="#services" data-i18n="nav_services">Services</a>
+  <a href="#about" data-i18n="nav_about">About</a>
+  <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+  <a href="#contact" data-i18n="nav_contact">Contact</a>
+  <button class="lang-toggle" role="switch" aria-checked="false" aria-label="Switch language / Ganti bahasa">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-opt" data-side="id">ID</span>
+        <span class="lang-toggle-opt" data-side="en">EN</span>
+        <span class="lang-toggle-knob"></span>
+      </span>
+    </button>
+</nav>
 
-  /* Active nav link tracking on the homepage */
-  var sections = document.querySelectorAll('main section[id]');
-  var navAnchors = document.querySelectorAll('.nav-links a, #mobileNav a');
-  if (sections.length && navAnchors.length) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          navAnchors.forEach(function (a) {
-            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
-          });
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    sections.forEach(function (s) { observer.observe(s); });
-  }
+<main>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="eyebrow glass"><span class="pulse"></span> <span data-i18n="hero_eyebrow">Futuristic Business Ecosystem</span></div>
+      <h1 class="h1"><span data-i18n="hero_title_pre">Build tomorrow's business on</span> <span class="grad" data-i18n="hero_title_accent">SAKA OMNI</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">One connected platform for websites, commerce, automation, and support — designed for teams who move fast and think ahead.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary"><span data-i18n="hero_btn_start">Get Started</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="#portfolio" class="btn btn-ghost" data-i18n="hero_btn_portfolio">View Portfolio</a>
+      </div>
 
-  /* Reveal-on-scroll */
-  var revealEls = document.querySelectorAll('.reveal');
-  if (revealEls.length) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
-  }
+      <div class="hero-panel glass reveal">
+        <div class="hero-panel-inner">
+          <div class="hero-mark-col">
+            <span class="mark lg"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+          </div>
+          <div class="hero-panel-copy">
+            <h3 data-i18n="hero_panel_title">OMNI Control Center</h3>
+            <p data-i18n="hero_panel_desc">Every product, metric, and workflow SAKA runs for your business — unified in a single glass panel.</p>
+            <div class="hero-chips">
+              <span class="chip" data-i18n="chip_1">Real-time analytics</span>
+              <span class="chip" data-i18n="chip_2">Automated workflows</span>
+              <span class="chip" data-i18n="chip_3">Enterprise-grade security</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b data-count="500">0</b><span data-i18n="stat_1_label">Businesses Onboarded</span></div>
+          <div class="stat"><b data-count="99">0</b><span data-i18n="stat_2_label">% Uptime SLA</span></div>
+          <div class="stat"><b data-count="24">0</b><span data-i18n="stat_3_label">/7 Global Support</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  /* Subtle mouse-parallax on hero ambient orbs */
-  var orbs = document.querySelectorAll('.bg-orb');
-  window.addEventListener('mousemove', function (e) {
-    var x = (e.clientX / window.innerWidth - 0.5) * 18;
-    var y = (e.clientY / window.innerHeight - 0.5) * 18;
-    orbs.forEach(function (o, i) {
-      var depth = (i + 1) * 0.4;
-      o.style.transform = 'translate(' + x * depth + 'px,' + y * depth + 'px)';
-    });
-  });
+  <!-- ===================== TRUSTED STRIP ===================== -->
+  <section class="trusted">
+    <div class="container">
+      <p data-i18n="trusted_label">Trusted by teams building the next generation of business</p>
+      <div class="trusted-row">
+        <span>Northline</span><span>Verdant</span><span>Hexacore</span><span>Lumen&amp;Co</span><span>Atlasware</span>
+      </div>
+    </div>
+  </section>
 
-  /* Contact form: sends to mail/send-mail.php, which relays via SMTP */
-  var form = document.getElementById('contactForm');
-  if (form) {
-    var submitBtn = form.querySelector('button[type="submit"]');
-    var errorBox = document.getElementById('formError');
-    var defaultBtnLabel = submitBtn ? submitBtn.textContent : '';
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="services_tag">Services</span>
+        <h2 data-i18n="services_title">Everything your business runs on, in one place</h2>
+        <p data-i18n="services_sub">SAKA replaces a stack of disconnected tools with one coherent platform built for speed and scale.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card glass reveal">
+          <span class="num">01</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span>
+          <h3 data-i18n="card1_title">Website &amp; Storefront</h3>
+          <p data-i18n="card1_desc">Launch a fast, on-brand site or storefront without touching a line of infrastructure code.</p>
+        </div>
+        <div class="card glass reveal">
+          <span class="num">02</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-7"/></svg></span>
+          <h3 data-i18n="card2_title">Growth &amp; Analytics</h3>
+          <p data-i18n="card2_desc">Track every funnel and channel in real time, with reports built for decisions, not just dashboards.</p>
+        </div>
+        <div class="card glass reveal">
+          <span class="num">03</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8v8H8z"/></svg></span>
+          <h3 data-i18n="card3_title">Automation Engine</h3>
+          <p data-i18n="card3_desc">Wire up workflows across support, billing, and operations so routine work runs itself.</p>
+        </div>
+        <div class="card glass reveal">
+          <span class="num">04</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Z"/><path d="m9.5 12 1.6 1.6 3.4-3.6"/></svg></span>
+          <h3 data-i18n="card4_title">Security &amp; Compliance</h3>
+          <p data-i18n="card4_desc">Encryption, access controls, and audit logs built in from day one — not bolted on later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (errorBox) { errorBox.classList.remove('show'); errorBox.textContent = ''; }
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <span class="section-tag" data-i18n="about_tag">About SAKA</span>
+          <h2 data-i18n="about_title">Built by operators, for operators</h2>
+          <p style="margin-top:16px;font-size:15.5px;" data-i18n="about_desc">SAKA started as an internal tool for running a fast-growing retail business, then became the platform other founders use to operate more clearly and scale faster.</p>
+          <ul class="about-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg> Built for real operational pain points, not generic templates.</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg> Designed to combine sales, service, and back-office work in one workflow.</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg> Ready to scale from early-stage founder teams to growing teams.</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold" style="margin-top:26px;" data-i18n="about_btn">Talk to Our Team</a>
+        </div>
+        <div class="about-visual glass reveal">
+          <span class="mark lg watermark" style="position:absolute;"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+          <span class="mark lg" style="transform:scale(1.3);"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      var lang = (typeof SAKA_LANG !== 'undefined') ? SAKA_LANG : 'id';
-      var payload = new FormData();
-      payload.append('name', document.getElementById('fname').value.trim());
-      payload.append('email', document.getElementById('femail').value.trim());
-      payload.append('company', document.getElementById('fcompany').value.trim());
-      payload.append('message', document.getElementById('fmsg').value.trim());
-      payload.append('lang', lang);
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="portfolio_tag">Portfolio</span>
+        <h2 data-i18n="portfolio_title">Businesses running on SAKA OMNI</h2>
+        <p data-i18n="portfolio_sub">A few of the teams we've helped move from spreadsheets to a real operating system.</p>
+      </div>
+      <div class="grid-3">
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span></div>
+          <span class="folio-tag" data-i18n="folio1_tag">Retail</span>
+          <h3>Northline Goods</h3>
+          <p data-i18n="folio1_desc">Storefront + inventory automation for a 40-store retail group.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio2_tag">Fintech</span>
+          <h3>Verdant Pay</h3>
+          <p data-i18n="folio2_desc">Compliance workflows and reporting for a regional payments startup.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio3_tag">Logistics</span>
+          <h3>Hexacore Freight</h3>
+          <p data-i18n="folio3_desc">Real-time dashboards connecting dispatch, fleet, and client billing.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span></div>
+          <span class="folio-tag" data-i18n="folio4_tag">Hospitality</span>
+          <h3>Lumen &amp; Co</h3>
+          <p data-i18n="folio4_desc">Booking site and guest automation across an eight-property group.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio5_tag">SaaS</span>
+          <h3>Atlasware</h3>
+          <p data-i18n="folio5_desc">Support and billing automation for a growing B2B software team.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio6_tag">Education</span>
+          <h3>Meridian Learning</h3>
+          <p data-i18n="folio6_desc">Enrollment site and student workflows for an online academy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = (SAKA_I18N && SAKA_I18N[lang] && SAKA_I18N[lang].form_sending) ? SAKA_I18N[lang].form_sending : 'Sending...';
-      }
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-panel glass reveal">
+        <h2 data-i18n="cta_title">Ready to run your business on one platform?</h2>
+        <p data-i18n="cta_sub">Set up a free workspace in minutes, or talk to our team about a guided migration.</p>
+        <div class="hero-actions" style="margin-bottom:0;">
+          <a href="#contact" class="btn btn-primary" data-i18n="cta_btn1">Get Started Free</a>
+          <a href="#contact" class="btn btn-ghost" data-i18n="cta_btn2">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      fetch('mail/send-mail.php', { method: 'POST', body: payload })
-        .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
-        .then(function (result) {
-          if (result.ok && result.data && result.data.success) {
-            form.style.display = 'none';
-            var success = document.getElementById('formSuccess');
-            if (success) success.classList.add('show');
-          } else {
-            var msg = (result.data && result.data.message) ? result.data.message
-              : (lang === 'en' ? 'Something went wrong. Please try again.' : 'Terjadi kesalahan. Silakan coba lagi.');
-            if (errorBox) { errorBox.textContent = msg; errorBox.classList.add('show'); }
-          }
-        })
-        .catch(function () {
-          var msg = (lang === 'en')
-            ? 'Could not reach the server. Please check your connection and try again.'
-            : 'Tidak bisa menghubungi server. Cek koneksi kamu dan coba lagi.';
-          if (errorBox) { errorBox.textContent = msg; errorBox.classList.add('show'); }
-        })
-        .finally(function () {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = defaultBtnLabel; }
-        });
-    });
-  }
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="contact_tag">Contact</span>
+        <h2 data-i18n="contact_title">Let's talk about your business</h2>
+        <p data-i18n="contact_sub">Tell us where you're stuck and we'll show you how OMNI fits in.</p>
+      </div>
+      <div class="contact-wrap">
+        <div class="contact-info-card glass reveal">
+          <div class="contact-info-item">
+            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6 12 13 2 6"/><path d="m2 6 10 7 10-7v12H2z"/></svg></span>
+            <div>
+              <b data-i18n="info_email_label">Email</b>
+              <a href="mailto:hello@saka-ai.my.id?cc=mlevian@protonmail.com" style="color:var(--muted);font-size:13px;">hello@saka-ai.my.id</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.6 3.2a2 2 0 0 1-.5 1.7L7.7 9.5a16 16 0 0 0 6.8 6.8l.9-.9a2 2 0 0 1 1.7-.5l3.2.6A2 2 0 0 1 22 16.9Z"/></svg></span>
+            <div>
+              <b data-i18n="info_phone_label">Phone / WhatsApp</b>
+              <a href="https://wa.me/6285111330391" target="_blank" rel="noopener" style="color:var(--muted);font-size:13px;">+62 851-1133-0391</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b data-i18n="info_office_label">Office</b><span>Jl. Sudirman No. 88, Jakarta</span></div>
+          </div>
+          <div class="social-row">
+            <a href="#" aria-label="X / Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.8L18.9 2Zm-1.7 18h1.9L7.8 3.8H5.8L17.2 20Z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-19.2h4v1.7h-.1c-.5-.9-1.8-1.9-3.7-1.9-4 0-4.7 2.7-4.7 6V21h-4V9Z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          </div>
+        </div>
 
-  /* Animate hero stat numbers once visible */
-  var statEls = document.querySelectorAll('.hero-stats [data-count]');
-  var statsAnimated = false;
-  function animateStats() {
-    if (statsAnimated || !statEls.length) return;
-    var rect = statEls[0].closest('.hero-stats').getBoundingClientRect();
-    if (rect.top < window.innerHeight - 60) {
-      statsAnimated = true;
-      statEls.forEach(function (el) {
-        var target = el.getAttribute('data-count');
-        var numeric = parseInt(target, 10);
-        var suffix = target.replace(/[0-9]/g, '');
-        if (isNaN(numeric)) { return; }
-        var current = 0;
-        var step = Math.max(1, Math.round(numeric / 36));
-        var timer = setInterval(function () {
-          current += step;
-          if (current >= numeric) { current = numeric; clearInterval(timer); }
-          el.textContent = current + suffix;
-        }, 22);
-      });
-    }
-  }
-  window.addEventListener('scroll', animateStats);
-  animateStats();
+        <div class="form-card glass reveal">
+          <div class="form-error" id="formError"></div>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-field"><label for="fname" data-i18n="form_name_label">Full name</label><input id="fname" type="text" data-i18n-placeholder="form_name_ph" placeholder="Your name" required /></div>
+              <div class="form-field"><label for="femail" data-i18n="form_email_label">Email</label><input id="femail" type="email" data-i18n-placeholder="form_email_ph" placeholder="you@company.com" required /></div>
+            </div>
+            <div class="form-field" style="margin-bottom:16px;"><label for="fcompany" data-i18n="form_company_label">Company</label><input id="fcompany" type="text" data-i18n-placeholder="form_company_ph" placeholder="Your company" /></div>
+            <div class="form-field" style="margin-bottom:20px;"><label for="fmsg" data-i18n="form_message_label">Message</label><textarea id="fmsg" data-i18n-placeholder="form_message_ph" placeholder="Tell us a bit about your goals" required></textarea></div>
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="form_btn_send">Send Message</button>
+            <p class="form-note" data-i18n-html="form_note_html">By submitting, you agree to our <a href="terms.html" style="color:var(--teal);">Terms of Service</a> and <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>.</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg></span>
+            <h3 style="margin-bottom:8px;" data-i18n="success_title">Message sent</h3>
+            <p data-i18n="success_desc">Thanks for reaching out — our team will reply within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-  /* Set current year in footer */
-  var yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-});
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="nav-brand">
+          <span class="mark sm"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+          SAKA <span class="tag">OMNI</span>
+        </a>
+        <p data-i18n="footer_desc">The all-in-one operating system for modern businesses — websites, commerce, automation, and support in one platform.</p>
+        <div class="social-row">
+          <a href="#" aria-label="X / Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.8L18.9 2Zm-1.7 18h1.9L7.8 3.8H5.8L17.2 20Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-19.2h4v1.7h-.1c-.5-.9-1.8-1.9-3.7-1.9-4 0-4.7 2.7-4.7 6V21h-4V9Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_company_h">Company</h4>
+        <a href="#home" data-i18n="nav_home">Home</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_services_h">Services</h4>
+        <a href="#services" data-i18n="card1_title">Website &amp; Storefront</a>
+        <a href="#services" data-i18n="card2_title">Growth &amp; Analytics</a>
+        <a href="#services" data-i18n="card3_title">Automation Engine</a>
+        <a href="#services" data-i18n="card4_title">Security &amp; Compliance</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_legal_h">Legal</h4>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#contact" data-i18n="footer_contact_support">Contact Support</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SAKA OMNI. <span data-i18n="copyright_text">All rights reserved.</span></span>
+      <div class="footer-visitor" aria-live="polite">
+        <span class="visitor-dot"></span>
+        <span>Visitors</span>
+        <strong id="visitorCount">0</strong>
+      </div>
+      <div class="legal-links">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
