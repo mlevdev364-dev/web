@@ -1,6 +1,12 @@
 // SAKA — site interactions
 document.addEventListener('DOMContentLoaded', function () {
 
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js').catch(function () {});
+    });
+  }
+
   /* Navbar background on scroll */
   var nav = document.querySelector('.nav');
   function onScroll() {

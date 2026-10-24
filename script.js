@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SAKA — Futuristic Business Ecosystem</title>
 <meta name="description" content="SAKA is an all-in-one platform for building, running, and scaling modern businesses." />
+<meta name="theme-color" content="#070B14" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="SAKA OMNI" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="assets/icon-192.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/icon-192.svg" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
 </head>

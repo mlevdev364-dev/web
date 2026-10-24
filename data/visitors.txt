@@ -1,34 +1,15 @@
-<?php
-header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-header('Pragma: no-cache');
-
-$dataDir = __DIR__ . '/data';
-if (!is_dir($dataDir)) {
-    mkdir($dataDir, 0775, true);
-}
-
-$filePath = $dataDir . '/visitors.txt';
-$counter = 0;
-if (is_file($filePath)) {
-    $content = trim((string) file_get_contents($filePath));
-    if ($content !== '') {
-        $counter = (int) $content;
-    }
-}
-
-$trackRequest = isset($_GET['track']) || isset($_POST['track']);
-$cookieName = 'saka_visitor';
-$alreadySeen = isset($_COOKIE[$cookieName]) && $_COOKIE[$cookieName] === '1';
-
-if ($trackRequest && !$alreadySeen) {
-    $counter += 1;
-    file_put_contents($filePath, (string) $counter, LOCK_EX);
-    setcookie($cookieName, '1', time() + (60 * 60 * 24 * 365), '/', '', false, true);
-}
-
-echo json_encode([
-    'count' => $counter,
-    'tracked' => $trackRequest ? true : false,
-    'unique' => $alreadySeen ? false : true,
-]);
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="g2" x1="80" y1="60" x2="430" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset="0.5" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect x="26" y="26" width="460" height="460" rx="96" fill="#0B1120" stroke="url(#g2)" stroke-width="4"/>
+  <path d="M152 142H360V182H152V142Z" fill="url(#g2)" opacity="0.92"/>
+  <path d="M140 220H238V350H140V220Z" fill="#111827" stroke="url(#g2)" stroke-width="4"/>
+  <path d="M258 220H372V350H258V220Z" fill="#111827" stroke="url(#g2)" stroke-width="4"/>
+  <path d="M200 146H312V384H200V146Z" fill="#111827" stroke="url(#g2)" stroke-width="4"/>
+  <rect x="176" y="394" width="160" height="22" rx="11" fill="url(#g2)"/>
+</svg>
