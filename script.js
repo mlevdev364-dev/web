@@ -1,353 +1,309 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SAKA — Futuristic Business Ecosystem</title>
-<meta name="description" content="SAKA is an all-in-one platform for building, running, and scaling modern businesses." />
-<meta name="theme-color" content="#070B14" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="SAKA OMNI" />
-<link rel="manifest" href="manifest.json" />
-<link rel="icon" href="assets/icon-192.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="assets/icon-192.svg" />
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
-</head>
-<body>
+/* ==========================================================
+   SAKA — Futuristic Glassmorphic Startup Site
+   Palette (from brand mark): 
+     --bg      #070B14  near-black navy
+     --bg2     #0C1424  panel base
+     --steel   #3B4A63  cool steel-blue (top ribbon of mark)
+     --teal    #2FE6D4  luminous teal (mid ribbon / core accent)
+     --gold    #EAB54C  warm gold (lower ribbon)
+     --text    #EDF1F7
+     --muted   #93A0B8
+   Display face: 'Space Grotesk' (geometric, technical — echoes the wordmark)
+   Body face:    'Inter'
+   Signature: a floating glass "ribbon" emblem (three interlocking
+   bars in steel/teal/gold) that recurs as a watermark through the page.
+   ========================================================== */
 
-<div class="bg-fx">
-  <div class="bg-grid"></div>
-  <span class="bg-orb orb-1"></span>
-  <span class="bg-orb orb-2"></span>
-  <span class="bg-orb orb-3"></span>
-  <span class="bg-orb orb-4"></span>
-</div>
+:root{
+  --bg:#070B14;
+  --bg2:#0C1424;
+  --steel:#3B4A63;
+  --teal:#2FE6D4;
+  --gold:#EAB54C;
+  --text:#EDF1F7;
+  --muted:#93A0B8;
+  --glass: rgba(255,255,255,.055);
+  --glass-strong: rgba(255,255,255,.09);
+  --glass-border: rgba(255,255,255,.14);
+  --radius: 18px;
+}
 
-<!-- ===================== NAVBAR ===================== -->
-<header class="nav glass">
-  <a href="#home" class="nav-brand">
-    <span class="mark sm"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
-    SAKA <span class="tag">OMNI</span>
-  </a>
-  <nav class="nav-links">
-    <a href="#home" class="active" data-i18n="nav_home">Home</a>
-    <a href="#services" data-i18n="nav_services">Services</a>
-    <a href="#about" data-i18n="nav_about">About</a>
-    <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
-    <a href="#contact" data-i18n="nav_contact">Contact</a>
-  </nav>
-  <div class="nav-actions">
-    <button class="lang-toggle" role="switch" aria-checked="false" aria-label="Switch language / Ganti bahasa">
-      <span class="lang-toggle-track">
-        <span class="lang-toggle-opt" data-side="id">ID</span>
-        <span class="lang-toggle-opt" data-side="en">EN</span>
-        <span class="lang-toggle-knob"></span>
-      </span>
-    </button>
-    <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav_getstarted">Get Started</a>
-    <button class="burger" id="burgerBtn" aria-label="Toggle menu">
-      <svg class="i-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      <svg class="i-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-</header>
-<nav class="nav-mobile glass" id="mobileNav">
-  <a href="#home" data-i18n="nav_home">Home</a>
-  <a href="#services" data-i18n="nav_services">Services</a>
-  <a href="#about" data-i18n="nav_about">About</a>
-  <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
-  <a href="#contact" data-i18n="nav_contact">Contact</a>
-  <button class="lang-toggle" role="switch" aria-checked="false" aria-label="Switch language / Ganti bahasa">
-      <span class="lang-toggle-track">
-        <span class="lang-toggle-opt" data-side="id">ID</span>
-        <span class="lang-toggle-opt" data-side="en">EN</span>
-        <span class="lang-toggle-knob"></span>
-      </span>
-    </button>
-</nav>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+  position:relative;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1180px;margin:0 auto;padding:0 6vw;}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;margin:0;font-weight:600;letter-spacing:-.01em;}
+p{margin:0;color:var(--muted);line-height:1.65;}
+section{position:relative;z-index:1;}
 
-<main>
-  <!-- ===================== HERO ===================== -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="eyebrow glass"><span class="pulse"></span> <span data-i18n="hero_eyebrow">Futuristic Business Ecosystem</span></div>
-      <h1 class="h1"><span data-i18n="hero_title_pre">Build tomorrow's business on</span> <span class="grad" data-i18n="hero_title_accent">SAKA OMNI</span></h1>
-      <p class="hero-sub" data-i18n="hero_sub">One connected platform for websites, commerce, automation, and support — designed for teams who move fast and think ahead.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary"><span data-i18n="hero_btn_start">Get Started</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-        <a href="#portfolio" class="btn btn-ghost" data-i18n="hero_btn_portfolio">View Portfolio</a>
-      </div>
+/* ---------- Ambient background layers (pure CSS, no external images) ---------- */
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-fx::before{
+  content:"";position:absolute;inset:-10%;
+  background:
+    radial-gradient(ellipse 42% 30% at 18% 8%, rgba(59,74,99,.55), transparent 60%),
+    radial-gradient(ellipse 38% 32% at 88% 18%, rgba(47,230,212,.20), transparent 60%),
+    radial-gradient(ellipse 40% 34% at 78% 92%, rgba(234,181,76,.16), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 8% 90%, rgba(47,230,212,.10), transparent 60%);
+  filter:blur(10px);
+}
+.bg-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 85%);
+  animation:grid-drift 40s linear infinite;
+}
+@keyframes grid-drift{from{background-position:0 0,0 0;}to{background-position:56px 0,0 56px;}}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;animation:orb-float 14s ease-in-out infinite;}
+.orb-1{width:10px;height:10px;background:var(--teal);top:22%;left:14%;box-shadow:0 0 24px 6px rgba(47,230,212,.7);}
+.orb-2{width:6px;height:6px;background:var(--gold);top:62%;left:78%;box-shadow:0 0 18px 5px rgba(234,181,76,.7);animation-delay:2s;}
+.orb-3{width:8px;height:8px;background:var(--teal);top:82%;left:30%;box-shadow:0 0 20px 5px rgba(47,230,212,.6);animation-delay:5s;}
+.orb-4{width:5px;height:5px;background:#fff;top:12%;left:66%;box-shadow:0 0 14px 4px rgba(255,255,255,.6);animation-delay:8s;}
+@keyframes orb-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-26px);}}
 
-      <div class="hero-panel glass reveal">
-        <div class="hero-panel-inner">
-          <div class="hero-mark-col">
-            <span class="mark lg"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
-          </div>
-          <div class="hero-panel-copy">
-            <h3 data-i18n="hero_panel_title">OMNI Control Center</h3>
-            <p data-i18n="hero_panel_desc">Every product, metric, and workflow SAKA runs for your business — unified in a single glass panel.</p>
-            <div class="hero-chips">
-              <span class="chip" data-i18n="chip_1">Real-time analytics</span>
-              <span class="chip" data-i18n="chip_2">Automated workflows</span>
-              <span class="chip" data-i18n="chip_3">Enterprise-grade security</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><b data-count="500">0</b><span data-i18n="stat_1_label">Businesses Onboarded</span></div>
-          <div class="stat"><b data-count="99">0</b><span data-i18n="stat_2_label">% Uptime SLA</span></div>
-          <div class="stat"><b data-count="24">0</b><span data-i18n="stat_3_label">/7 Global Support</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+.glass{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-radius:var(--radius);
+}
 
-  <!-- ===================== TRUSTED STRIP ===================== -->
-  <section class="trusted">
-    <div class="container">
-      <p data-i18n="trusted_label">Trusted by teams building the next generation of business</p>
-      <div class="trusted-row">
-        <span>Northline</span><span>Verdant</span><span>Hexacore</span><span>Lumen&amp;Co</span><span>Atlasware</span>
-      </div>
-    </div>
-  </section>
+.mark{position:relative;display:inline-block;}
+.mark .bar{position:absolute;height:9px;border-radius:5px;box-shadow:0 2px 10px rgba(0,0,0,.35);}
+.mark.sm{width:26px;height:26px;}
+.mark.sm .bar{height:6px;border-radius:3px;}
+.mark.sm .b1{width:20px;top:2px;left:2px;transform:rotate(28deg);background:linear-gradient(90deg,#4a5c78,var(--steel));}
+.mark.sm .b2{width:22px;top:11px;left:2px;transform:rotate(-16deg);background:linear-gradient(90deg,var(--teal),#7ff5e8);box-shadow:0 0 10px rgba(47,230,212,.7);}
+.mark.sm .b3{width:20px;top:19px;left:3px;transform:rotate(24deg);background:linear-gradient(90deg,var(--gold),#f7d488);}
+.mark.lg{width:120px;height:120px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5));}
+.mark.lg .bar{height:20px;border-radius:10px;}
+.mark.lg .b1{width:78px;top:10px;left:14px;transform:rotate(28deg);background:linear-gradient(90deg,#4a5c78,var(--steel));}
+.mark.lg .b2{width:90px;top:50px;left:10px;transform:rotate(-16deg);background:linear-gradient(90deg,var(--teal),#8bf7ec);box-shadow:0 0 30px rgba(47,230,212,.65);}
+.mark.lg .b3{width:78px;top:88px;left:22px;transform:rotate(24deg);background:linear-gradient(90deg,var(--gold),#f7d488);}
+.mark.watermark{opacity:.05;transform:scale(3.4);}
 
-  <!-- ===================== SERVICES ===================== -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-tag" data-i18n="services_tag">Services</span>
-        <h2 data-i18n="services_title">Everything your business runs on, in one place</h2>
-        <p data-i18n="services_sub">SAKA replaces a stack of disconnected tools with one coherent platform built for speed and scale.</p>
-      </div>
-      <div class="grid-4">
-        <div class="card glass reveal">
-          <span class="num">01</span>
-          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span>
-          <h3 data-i18n="card1_title">Website &amp; Storefront</h3>
-          <p data-i18n="card1_desc">Launch a fast, on-brand site or storefront without touching a line of infrastructure code.</p>
-        </div>
-        <div class="card glass reveal">
-          <span class="num">02</span>
-          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-7"/></svg></span>
-          <h3 data-i18n="card2_title">Growth &amp; Analytics</h3>
-          <p data-i18n="card2_desc">Track every funnel and channel in real time, with reports built for decisions, not just dashboards.</p>
-        </div>
-        <div class="card glass reveal">
-          <span class="num">03</span>
-          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8v8H8z"/></svg></span>
-          <h3 data-i18n="card3_title">Automation Engine</h3>
-          <p data-i18n="card3_desc">Wire up workflows across support, billing, and operations so routine work runs itself.</p>
-        </div>
-        <div class="card glass reveal">
-          <span class="num">04</span>
-          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Z"/><path d="m9.5 12 1.6 1.6 3.4-3.6"/></svg></span>
-          <h3 data-i18n="card4_title">Security &amp; Compliance</h3>
-          <p data-i18n="card4_desc">Encryption, access controls, and audit logs built in from day one — not bolted on later.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+.nav{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  width:min(1180px, 92vw);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 20px;z-index:50;
+  transition:background .3s ease, box-shadow .3s ease;
+}
+.nav.scrolled{background:rgba(9,13,22,.72);box-shadow:0 10px 30px rgba(0,0,0,.35);}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:18px;}
+.nav-brand .tag{font-size:9px;color:var(--teal);letter-spacing:.28em;font-weight:600;margin-left:2px;}
+.nav-links{display:flex;gap:30px;font-size:14px;color:var(--muted);}
+.nav-links a{position:relative;padding:4px 0;transition:color .2s;}
+.nav-links a:hover, .nav-links a.active{color:var(--text);}
+.nav-links a.active::after{content:"";position:absolute;bottom:-4px;left:0;right:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--teal),var(--gold));}
+.nav-actions{display:flex;align-items:center;gap:12px;}
+.burger{display:none;background:none;border:none;color:var(--text);cursor:pointer;flex:0 0 auto;}
 
-  <!-- ===================== ABOUT ===================== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="grid-2">
-        <div class="reveal">
-          <span class="section-tag" data-i18n="about_tag">About SAKA</span>
-          <h2 data-i18n="about_title">Built by operators, for operators</h2>
-          <p style="margin-top:16px;font-size:15.5px;" data-i18n="about_desc">SAKA started as an internal tool for running a fast-growing retail business, then became the platform other founders use to operate more clearly and scale faster.</p>
-          <ul class="about-list">
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg> Built for real operational pain points, not generic templates.</li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg> Designed to combine sales, service, and back-office work in one workflow.</li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg> Ready to scale from early-stage founder teams to growing teams.</li>
-          </ul>
-          <a href="#contact" class="btn btn-gold" style="margin-top:26px;" data-i18n="about_btn">Talk to Our Team</a>
-        </div>
-        <div class="about-visual glass reveal">
-          <span class="mark lg watermark" style="position:absolute;"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
-          <span class="mark lg" style="transform:scale(1.3);"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
-        </div>
-      </div>
-    </div>
-  </section>
+.lang-toggle{
+  position:relative;flex:0 0 auto;width:72px;height:30px;padding:0;border:none;cursor:pointer;
+  background:rgba(255,255,255,.06);border:1px solid var(--glass-border);border-radius:999px;
+}
+.lang-toggle-track{position:relative;display:flex;width:100%;height:100%;}
+.lang-toggle-opt{flex:1;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--muted);position:relative;z-index:1;transition:color .25s ease;}
+.lang-toggle-knob{
+  position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);
+  border-radius:999px;background:linear-gradient(120deg,var(--teal),#59f0e0);
+  box-shadow:0 4px 12px -4px rgba(47,230,212,.6);transition:transform .25s ease;
+}
+.lang-toggle.is-en .lang-toggle-knob{transform:translateX(100%);}
+.lang-toggle:not(.is-en) .lang-toggle-opt[data-side="id"]{color:#04121a;}
+.lang-toggle.is-en .lang-toggle-opt[data-side="en"]{color:#04121a;}
+.nav-mobile{
+  display:none;position:fixed;top:88px;left:50%;transform:translateX(-50%);
+  width:min(1180px,92vw);flex-direction:column;gap:4px;padding:14px 20px;z-index:49;
+}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{padding:12px 6px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.06);}
+.nav-mobile a:last-child{border-bottom:none;}
 
-  <!-- ===================== PORTFOLIO ===================== -->
-  <section class="section" id="portfolio">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-tag" data-i18n="portfolio_tag">Portfolio</span>
-        <h2 data-i18n="portfolio_title">Businesses running on SAKA OMNI</h2>
-        <p data-i18n="portfolio_sub">A few of the teams we've helped move from spreadsheets to a real operating system.</p>
-      </div>
-      <div class="grid-3">
-        <div class="folio-card reveal">
-          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span></div>
-          <span class="folio-tag" data-i18n="folio1_tag">Retail</span>
-          <h3>Northline Goods</h3>
-          <p data-i18n="folio1_desc">Storefront + inventory automation for a 40-store retail group.</p>
-        </div>
-        <div class="folio-card reveal">
-          <div class="folio-thumb glass"><span class="g1"></span><span class="g3"></span></div>
-          <span class="folio-tag" data-i18n="folio2_tag">Fintech</span>
-          <h3>Verdant Pay</h3>
-          <p data-i18n="folio2_desc">Compliance workflows and reporting for a regional payments startup.</p>
-        </div>
-        <div class="folio-card reveal">
-          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-          <span class="folio-tag" data-i18n="folio3_tag">Logistics</span>
-          <h3>Hexacore Freight</h3>
-          <p data-i18n="folio3_desc">Real-time dashboards connecting dispatch, fleet, and client billing.</p>
-        </div>
-        <div class="folio-card reveal">
-          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span></div>
-          <span class="folio-tag" data-i18n="folio4_tag">Hospitality</span>
-          <h3>Lumen &amp; Co</h3>
-          <p data-i18n="folio4_desc">Booking site and guest automation across an eight-property group.</p>
-        </div>
-        <div class="folio-card reveal">
-          <div class="folio-thumb glass"><span class="g1"></span><span class="g3"></span></div>
-          <span class="folio-tag" data-i18n="folio5_tag">SaaS</span>
-          <h3>Atlasware</h3>
-          <p data-i18n="folio5_desc">Support and billing automation for a growing B2B software team.</p>
-        </div>
-        <div class="folio-card reveal">
-          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-          <span class="folio-tag" data-i18n="folio6_tag">Education</span>
-          <h3>Meridian Learning</h3>
-          <p data-i18n="folio6_desc">Enrollment site and student workflows for an online academy.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+.btn{
+  display:inline-flex;align-items:center;gap:8px;justify-content:center;
+  font-family:'Inter';font-weight:600;font-size:14px;
+  padding:12px 22px;border-radius:999px;cursor:pointer;border:none;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{color:#04121a;background:linear-gradient(120deg,var(--teal),#59f0e0);box-shadow:0 10px 26px -8px rgba(47,230,212,.55);}
+.btn-ghost{color:var(--text);background:var(--glass);border:1px solid var(--glass-border);}
+.btn-gold{color:#221604;background:linear-gradient(120deg,var(--gold),#f7d488);box-shadow:0 10px 26px -8px rgba(234,181,76,.5);}
+.btn-sm{padding:9px 16px;font-size:13px;}
+.btn-block{width:100%;}
 
-  <!-- ===================== CTA BAND ===================== -->
-  <section class="cta-band">
-    <div class="container">
-      <div class="cta-panel glass reveal">
-        <h2 data-i18n="cta_title">Ready to run your business on one platform?</h2>
-        <p data-i18n="cta_sub">Set up a free workspace in minutes, or talk to our team about a guided migration.</p>
-        <div class="hero-actions" style="margin-bottom:0;">
-          <a href="#contact" class="btn btn-primary" data-i18n="cta_btn1">Get Started Free</a>
-          <a href="#contact" class="btn btn-ghost" data-i18n="cta_btn2">Book a Demo</a>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero{padding:168px 0 110px;text-align:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);
+  padding:7px 16px;border-radius:999px;margin-bottom:26px;
+}
+.eyebrow .pulse{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px rgba(47,230,212,.9);animation:pulse 1.8s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.h1{font-size:clamp(38px,6vw,68px);line-height:1.05;max-width:820px;margin:0 auto 22px;}
+.h1 .grad{background:linear-gradient(120deg,var(--teal),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero-sub{max-width:520px;margin:0 auto 38px;font-size:17px;}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;}
 
-  <!-- ===================== CONTACT ===================== -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-tag" data-i18n="contact_tag">Contact</span>
-        <h2 data-i18n="contact_title">Let's talk about your business</h2>
-        <p data-i18n="contact_sub">Tell us where you're stuck and we'll show you how OMNI fits in.</p>
-      </div>
-      <div class="contact-wrap">
-        <div class="contact-info-card glass reveal">
-          <div class="contact-info-item">
-            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6 12 13 2 6"/><path d="m2 6 10 7 10-7v12H2z"/></svg></span>
-            <div>
-              <b data-i18n="info_email_label">Email</b>
-              <a href="mailto:hello@saka-ai.my.id?cc=mlevian@protonmail.com" style="color:var(--muted);font-size:13px;">hello@saka-ai.my.id</a>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l.6 3.2a2 2 0 0 1-.5 1.7L7.7 9.5a16 16 0 0 0 6.8 6.8l.9-.9a2 2 0 0 1 1.7-.5l3.2.6A2 2 0 0 1 22 16.9Z"/></svg></span>
-            <div>
-              <b data-i18n="info_phone_label">Phone / WhatsApp</b>
-              <a href="https://wa.me/6285111330391" target="_blank" rel="noopener" style="color:var(--muted);font-size:13px;">+62 851-1133-0391</a>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <div><b data-i18n="info_office_label">Office</b><span>Jl. Sudirman No. 88, Jakarta</span></div>
-          </div>
-          <div class="social-row">
-            <a href="#" aria-label="X / Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.8L18.9 2Zm-1.7 18h1.9L7.8 3.8H5.8L17.2 20Z"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-19.2h4v1.7h-.1c-.5-.9-1.8-1.9-3.7-1.9-4 0-4.7 2.7-4.7 6V21h-4V9Z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          </div>
-        </div>
+.hero-panel{max-width:900px;margin:0 auto;padding:26px;position:relative;}
+.hero-panel-inner{display:flex;align-items:center;gap:32px;text-align:left;flex-wrap:wrap;}
+.hero-mark-col{flex:0 0 auto;}
+.hero-panel-copy{flex:1;min-width:220px;}
+.hero-panel-copy h3{font-size:20px;margin-bottom:8px;}
+.hero-panel-copy p{font-size:13.5px;}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.chip{font-size:12px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--glass-border);color:var(--muted);}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--glass-border);margin-top:24px;padding-top:20px;}
+.hero-stats .stat{flex:1;text-align:center;border-right:1px solid var(--glass-border);}
+.hero-stats .stat:last-child{border-right:none;}
+.hero-stats .stat b{display:block;font-family:'Space Grotesk';font-size:22px;}
+.hero-stats .stat span{font-size:11.5px;color:var(--muted);}
 
-        <div class="form-card glass reveal">
-          <div class="form-error" id="formError"></div>
-          <form id="contactForm">
-            <div class="form-row">
-              <div class="form-field"><label for="fname" data-i18n="form_name_label">Full name</label><input id="fname" type="text" data-i18n-placeholder="form_name_ph" placeholder="Your name" required /></div>
-              <div class="form-field"><label for="femail" data-i18n="form_email_label">Email</label><input id="femail" type="email" data-i18n-placeholder="form_email_ph" placeholder="you@company.com" required /></div>
-            </div>
-            <div class="form-field" style="margin-bottom:16px;"><label for="fcompany" data-i18n="form_company_label">Company</label><input id="fcompany" type="text" data-i18n-placeholder="form_company_ph" placeholder="Your company" /></div>
-            <div class="form-field" style="margin-bottom:20px;"><label for="fmsg" data-i18n="form_message_label">Message</label><textarea id="fmsg" data-i18n-placeholder="form_message_ph" placeholder="Tell us a bit about your goals" required></textarea></div>
-            <button type="submit" class="btn btn-primary btn-block" data-i18n="form_btn_send">Send Message</button>
-            <p class="form-note" data-i18n-html="form_note_html">By submitting, you agree to our <a href="terms.html" style="color:var(--teal);">Terms of Service</a> and <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>.</p>
-          </form>
-          <div class="form-success" id="formSuccess">
-            <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 1"/></svg></span>
-            <h3 style="margin-bottom:8px;" data-i18n="success_title">Message sent</h3>
-            <p data-i18n="success_desc">Thanks for reaching out — our team will reply within one business day.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+.trusted{padding:36px 0;text-align:center;}
+.trusted p{font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.trusted-row{display:flex;justify-content:center;gap:52px;flex-wrap:wrap;font-family:'Space Grotesk';font-weight:600;color:#4d5a70;font-size:17px;}
 
-<!-- ===================== FOOTER ===================== -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#home" class="nav-brand">
-          <span class="mark sm"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
-          SAKA <span class="tag">OMNI</span>
-        </a>
-        <p data-i18n="footer_desc">The all-in-one operating system for modern businesses — websites, commerce, automation, and support in one platform.</p>
-        <div class="social-row">
-          <a href="#" aria-label="X / Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.8L18.9 2Zm-1.7 18h1.9L7.8 3.8H5.8L17.2 20Z"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-19.2h4v1.7h-.1c-.5-.9-1.8-1.9-3.7-1.9-4 0-4.7 2.7-4.7 6V21h-4V9Z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer_company_h">Company</h4>
-        <a href="#home" data-i18n="nav_home">Home</a>
-        <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer_services_h">Services</h4>
-        <a href="#services" data-i18n="card1_title">Website &amp; Storefront</a>
-        <a href="#services" data-i18n="card2_title">Growth &amp; Analytics</a>
-        <a href="#services" data-i18n="card3_title">Automation Engine</a>
-        <a href="#services" data-i18n="card4_title">Security &amp; Compliance</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer_legal_h">Legal</h4>
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="#contact" data-i18n="footer_contact_support">Contact Support</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> SAKA OMNI. <span data-i18n="copyright_text">All rights reserved.</span></span>
-      <div class="footer-visitor" aria-live="polite">
-        <span class="visitor-dot"></span>
-        <span>Visitors</span>
-        <strong id="visitorCount">0</strong>
-      </div>
-      <div class="legal-links">
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy.html">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
-</footer>
+.section-head{max-width:600px;margin:0 auto 52px;text-align:center;}
+.section{padding:96px 0;}
+.section-tag{display:inline-block;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.section-head h2{font-size:clamp(26px,4vw,38px);margin-bottom:14px;}
+.section-head p{font-size:15.5px;}
 
-<script src="i18n.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+.card{padding:26px 22px;transition:transform .25s ease, border-color .25s ease;}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28);}
+.card .icon{
+  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:rgba(47,230,212,.12);color:var(--teal);margin-bottom:18px;
+}
+.card h3{font-size:17px;margin-bottom:8px;}
+.card p{font-size:13.5px;}
+.card .num{position:absolute;top:20px;right:22px;font-family:'Space Grotesk';font-size:12px;color:#4d5a70;}
+.card{position:relative;}
+
+.about-visual{padding:36px;position:relative;min-height:340px;display:flex;align-items:center;justify-content:center;}
+.about-list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;}
+.about-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--text);}
+.about-list svg{flex:0 0 auto;color:var(--teal);margin-top:2px;}
+
+.folio-thumb{
+  height:170px;border-radius:14px;margin-bottom:18px;position:relative;overflow:hidden;
+}
+.folio-thumb .g1{position:absolute;inset:0;background:linear-gradient(135deg,var(--steel),var(--bg2));}
+.folio-thumb .g2{position:absolute;inset:0;background:linear-gradient(135deg,rgba(47,230,212,.55),transparent);}
+.folio-thumb .g3{position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(234,181,76,.45));}
+.folio-tag{display:inline-block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.folio-card h3{font-size:16.5px;margin-bottom:6px;}
+.folio-card p{font-size:13px;}
+
+.contact-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:34px;align-items:start;}
+.contact-info-card{padding:30px;}
+.contact-info-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px;}
+.contact-info-item .ic{width:38px;height:38px;border-radius:10px;background:rgba(234,181,76,.14);color:var(--gold);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.contact-info-item b{display:block;font-size:14px;margin-bottom:3px;}
+.contact-info-item span{font-size:13px;color:var(--muted);}
+.social-row{display:flex;gap:10px;margin-top:8px;}
+.social-row a{width:36px;height:36px;border-radius:10px;background:var(--glass);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:color .2s ease, border-color .2s ease;}
+.social-row a:hover{color:var(--teal);border-color:var(--teal);}
+
+.form-card{padding:32px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.form-field label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:7px;}
+.form-field input, .form-field textarea{
+  width:100%;background:rgba(255,255,255,.05);border:1px solid var(--glass-border);
+  border-radius:10px;padding:12px 14px;color:var(--text);font-family:'Inter';font-size:14px;outline:none;
+  transition:border-color .2s;
+}
+.form-field input:focus, .form-field textarea:focus{border-color:var(--teal);}
+.form-field textarea{min-height:110px;resize:vertical;}
+.form-note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center;}
+.form-error{display:none;font-size:13px;color:#ff9b8a;background:rgba(255,90,60,.1);border:1px solid rgba(255,90,60,.3);border-radius:10px;padding:10px 14px;margin-bottom:16px;}
+.form-error.show{display:block;}
+.btn[disabled]{opacity:.7;cursor:not-allowed;transform:none;}
+.form-success{display:none;text-align:center;padding:40px 10px;}
+.form-success.show{display:block;}
+.form-success .ic{width:52px;height:52px;border-radius:50%;background:rgba(47,230,212,.15);color:var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+
+.cta-band{padding:60px 0;}
+.cta-panel{padding:52px 40px;text-align:center;position:relative;overflow:hidden;}
+.cta-panel h2{font-size:clamp(24px,4vw,34px);margin-bottom:14px;}
+.cta-panel p{max-width:480px;margin:0 auto 28px;}
+
+footer{padding:70px 0 0;border-top:1px solid var(--glass-border);margin-top:40px;}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;padding-bottom:50px;}
+.footer-brand p{font-size:13.5px;margin-top:14px;max-width:280px;}
+.footer-col h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin-bottom:16px;}
+.footer-col a{display:block;font-size:13.5px;color:var(--muted);margin-bottom:12px;transition:color .2s;}
+.footer-col a:hover{color:var(--teal);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  border-top:1px solid var(--glass-border);padding:22px 0;font-size:12.5px;color:var(--muted);
+}
+.footer-bottom .legal-links{display:flex;gap:20px;}
+.footer-visitor{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.04);
+  border:1px solid var(--glass-border);color:var(--text);font-weight:600;
+}
+.footer-visitor .visitor-dot{
+  width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--gold));
+  box-shadow:0 0 12px rgba(47,230,212,.8);display:inline-block;
+}
+.footer-visitor strong{color:var(--teal);font-family:'Space Grotesk';font-size:13px;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+.legal-hero{padding:150px 0 50px;text-align:center;}
+.legal-hero p{max-width:480px;margin:12px auto 0;font-size:14px;}
+.legal-body{padding:20px 0 100px;}
+.legal-panel{padding:44px;max-width:880px;margin:0 auto;}
+.legal-panel h2{font-size:19px;margin:32px 0 12px;}
+.legal-panel h2:first-child{margin-top:0;}
+.legal-panel p, .legal-panel li{font-size:14.5px;color:var(--muted);margin-bottom:10px;}
+.legal-panel ul{padding-left:20px;}
+.legal-updated{font-size:12.5px;color:var(--gold);display:inline-block;margin-bottom:6px;}
+
+@media (max-width:980px){
+  .grid-4{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(2,1fr);}
+  .grid-2{grid-template-columns:1fr;}
+  .contact-wrap{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+  .burger{display:block;}
+}
+@media (max-width:420px){
+  .nav-cta{display:none;}
+}
+@media (max-width:640px){
+  .grid-4, .grid-3{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .hero-stats{flex-wrap:wrap;}
+  .hero-stats .stat{flex:0 0 50%;border-right:none;margin-bottom:14px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+}
+
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
