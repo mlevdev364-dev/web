@@ -49,6 +49,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var modal = document.getElementById('developmentModal');
+  var modalClose = document.getElementById('modalClose');
+  var whatsappBtn = document.getElementById('whatsappDirect');
+
+  function openDevelopmentModal() {
+    if (modal) modal.classList.add('show');
+  }
+  function closeDevelopmentModal() {
+    if (modal) modal.classList.remove('show');
+  }
+
+  if (modalClose) modalClose.addEventListener('click', closeDevelopmentModal);
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeDevelopmentModal();
+    });
+  }
+  if (whatsappBtn) {
+    whatsappBtn.href = 'https://wa.me/6285111330391?text=' + encodeURIComponent('Halo SAKA OMNI, saya ingin bertanya mengenai layanan Anda.');
+  }
+
   var sections = document.querySelectorAll('main section[id]');
   var navAnchors = document.querySelectorAll('.nav-links a, #mobileNav a');
   if (sections.length && navAnchors.length) {
@@ -106,55 +127,19 @@ document.addEventListener('DOMContentLoaded', function () {
         errorBox.textContent = '';
       }
 
-      var lang = (typeof SAKA_LANG !== 'undefined') ? SAKA_LANG : 'id';
-      var payload = new FormData();
-      payload.append('name', document.getElementById('fname').value.trim());
-      payload.append('email', document.getElementById('femail').value.trim());
-      payload.append('company', document.getElementById('fcompany').value.trim());
-      payload.append('message', document.getElementById('fmsg').value.trim());
-      payload.append('lang', lang);
+      openDevelopmentModal();
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = (window.SAKA_I18N && window.SAKA_I18N[lang] && window.SAKA_I18N[lang].form_sending) ? window.SAKA_I18N[lang].form_sending : 'Sending...';
+        submitBtn.textContent = 'Dalam Pengembangan';
       }
 
-      fetch('mail/send-mail.php', { method: 'POST', body: payload })
-        .then(function (res) {
-          return res.json().then(function (data) {
-            return { ok: res.ok, data: data };
-          });
-        })
-        .then(function (result) {
-          if (result.ok && result.data && result.data.success) {
-            form.style.display = 'none';
-            var success = document.getElementById('formSuccess');
-            if (success) success.classList.add('show');
-          } else {
-            var msg = (result.data && result.data.message)
-              ? result.data.message
-              : (lang === 'en' ? 'Something went wrong. Please try again.' : 'Terjadi kesalahan. Silakan coba lagi.');
-            if (errorBox) {
-              errorBox.textContent = msg;
-              errorBox.classList.add('show');
-            }
-          }
-        })
-        .catch(function () {
-          var msg = (lang === 'en')
-            ? 'Could not reach the server. Please check your connection and try again.'
-            : 'Tidak bisa menghubungi server. Cek koneksi kamu dan coba lagi.';
-          if (errorBox) {
-            errorBox.textContent = msg;
-            errorBox.classList.add('show');
-          }
-        })
-        .finally(function () {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = defaultBtnLabel;
-          }
-        });
+      setTimeout(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = defaultBtnLabel;
+        }
+      }, 1200);
     });
   }
 
