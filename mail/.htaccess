@@ -1,0 +1,10 @@
+# Blokir akses langsung ke config.php dan smtp-mailer.php dari browser.
+# Hanya send-mail.php yang boleh diakses (dipanggil oleh fetch() di script.js).
+
+<FilesMatch "^(config|smtp-mailer)\.php$">
+  # Apache 2.4+
+  Require all denied
+  # Fallback untuk Apache 2.2
+  Order allow,deny
+  Deny from all
+</FilesMatch>
