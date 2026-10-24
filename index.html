@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SAKA — Futuristic Business Ecosystem</title>
+<meta name="description" content="SAKA is an all-in-one platform for building, running, and scaling modern businesses." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+</head>
+<body>
+
+<div class="bg-fx">
+  <div class="bg-grid"></div>
+  <span class="bg-orb orb-1"></span>
+  <span class="bg-orb orb-2"></span>
+  <span class="bg-orb orb-3"></span>
+  <span class="bg-orb orb-4"></span>
+</div>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="nav glass">
+  <a href="#home" class="nav-brand">
+    <span class="mark sm"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+    SAKA <span class="tag">OMNI</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#home" class="active" data-i18n="nav_home">Home</a>
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="lang-toggle" role="switch" aria-checked="false" aria-label="Switch language / Ganti bahasa">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-opt" data-side="id">ID</span>
+        <span class="lang-toggle-opt" data-side="en">EN</span>
+        <span class="lang-toggle-knob"></span>
+      </span>
+    </button>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav_getstarted">Get Started</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu">
+      <svg class="i-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="i-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="nav-mobile glass" id="mobileNav">
+  <a href="#home" data-i18n="nav_home">Home</a>
+  <a href="#services" data-i18n="nav_services">Services</a>
+  <a href="#about" data-i18n="nav_about">About</a>
+  <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+  <a href="#contact" data-i18n="nav_contact">Contact</a>
+  <button class="lang-toggle" role="switch" aria-checked="false" aria-label="Switch language / Ganti bahasa">
+      <span class="lang-toggle-track">
+        <span class="lang-toggle-opt" data-side="id">ID</span>
+        <span class="lang-toggle-opt" data-side="en">EN</span>
+        <span class="lang-toggle-knob"></span>
+      </span>
+    </button>
+</nav>
+
+<main>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="eyebrow glass"><span class="pulse"></span> <span data-i18n="hero_eyebrow">Futuristic Business Ecosystem</span></div>
+      <h1 class="h1"><span data-i18n="hero_title_pre">Build tomorrow's business on</span> <span class="grad" data-i18n="hero_title_accent">SAKA OMNI</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">One connected platform for websites, commerce, automation, and support — designed for teams who move fast and think ahead.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary"><span data-i18n="hero_btn_start">Get Started</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#portfolio" class="btn btn-ghost" data-i18n="hero_btn_portfolio">View Portfolio</a>
+      </div>
+
+      <div class="hero-panel glass reveal">
+        <div class="hero-panel-inner">
+          <div class="hero-mark-col">
+            <span class="mark lg"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+          </div>
+          <div class="hero-panel-copy">
+            <h3 data-i18n="hero_panel_title">OMNI Control Center</h3>
+            <p data-i18n="hero_panel_desc">Every product, metric, and workflow SAKA runs for your business — unified in a single glass panel.</p>
+            <div class="hero-chips">
+              <span class="chip" data-i18n="chip_1">Real-time analytics</span>
+              <span class="chip" data-i18n="chip_2">Automated workflows</span>
+              <span class="chip" data-i18n="chip_3">Enterprise-grade security</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b data-count="500">0</b><span data-i18n="stat_1_label">Businesses Onboarded</span></div>
+          <div class="stat"><b data-count="99">0</b><span data-i18n="stat_2_label">% Uptime SLA</span></div>
+          <div class="stat"><b data-count="24">0</b><span data-i18n="stat_3_label">/7 Global Support</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRUSTED STRIP ===================== -->
+  <section class="trusted">
+    <div class="container">
+      <p data-i18n="trusted_label">Trusted by teams building the next generation of business</p>
+      <div class="trusted-row">
+        <span>Northline</span><span>Verdant</span><span>Hexacore</span><span>Lumen&amp;Co</span><span>Atlasware</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="services_tag">Services</span>
+        <h2 data-i18n="services_title">Everything your business runs on, in one place</h2>
+        <p data-i18n="services_sub">SAKA replaces a stack of disconnected tools with one coherent platform built for speed and scale.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card glass reveal">
+          <span class="num">01</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="18" x2="12" y2="21"/></svg></span>
+          <h3 data-i18n="card1_title">Website &amp; Storefront</h3>
+          <p data-i18n="card1_desc">Launch a fast, on-brand site or storefront without touching a line of infrastructure code.</p>
+        </div>
+        <div class="card glass reveal">
+          <span class="num">02</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></span>
+          <h3 data-i18n="card2_title">Growth &amp; Analytics</h3>
+          <p data-i18n="card2_desc">Track every funnel and channel in real time, with reports built for decisions, not just dashboards.</p>
+        </div>
+        <div class="card glass reveal">
+          <span class="num">03</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 9h.01M15 9h.01M9.5 15a3.5 3.5 0 0 0 5 0"/></svg></span>
+          <h3 data-i18n="card3_title">Automation Engine</h3>
+          <p data-i18n="card3_desc">Wire up workflows across support, billing, and operations so routine work runs itself.</p>
+        </div>
+        <div class="card glass reveal">
+          <span class="num">04</span>
+          <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6l-8-4Z"/></svg></span>
+          <h3 data-i18n="card4_title">Security &amp; Compliance</h3>
+          <p data-i18n="card4_desc">Encryption, access controls, and audit logs built in from day one — not bolted on later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <span class="section-tag" data-i18n="about_tag">About SAKA</span>
+          <h2 data-i18n="about_title">Built by operators, for operators</h2>
+          <p style="margin-top:16px;font-size:15.5px;" data-i18n="about_desc">SAKA started as an internal tool for running a fast-growing retail business, then became the platform other founders kept asking to use. Today OMNI, our core system, powers the day-to-day of teams who'd rather build their business than babysit their software.</p>
+          <ul class="about-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="about_li1">One platform instead of a dozen disconnected tools</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="about_li2">Onboarding measured in hours, not quarters</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="about_li3">A support team that answers, not a ticket queue</span></li>
+          </ul>
+          <a href="#contact" class="btn btn-gold" style="margin-top:26px;" data-i18n="about_btn">Talk to Our Team</a>
+        </div>
+        <div class="about-visual glass reveal">
+          <span class="mark lg watermark" style="position:absolute;"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+          <span class="mark lg" style="transform:scale(1.3);"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="portfolio_tag">Portfolio</span>
+        <h2 data-i18n="portfolio_title">Businesses running on SAKA OMNI</h2>
+        <p data-i18n="portfolio_sub">A few of the teams we've helped move from spreadsheets to a real operating system.</p>
+      </div>
+      <div class="grid-3">
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span></div>
+          <span class="folio-tag" data-i18n="folio1_tag">Retail</span>
+          <h3>Northline Goods</h3>
+          <p data-i18n="folio1_desc">Storefront + inventory automation for a 40-store retail group.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio2_tag">Fintech</span>
+          <h3>Verdant Pay</h3>
+          <p data-i18n="folio2_desc">Compliance workflows and reporting for a regional payments startup.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio3_tag">Logistics</span>
+          <h3>Hexacore Freight</h3>
+          <p data-i18n="folio3_desc">Real-time dashboards connecting dispatch, fleet, and client billing.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span></div>
+          <span class="folio-tag" data-i18n="folio4_tag">Hospitality</span>
+          <h3>Lumen &amp; Co</h3>
+          <p data-i18n="folio4_desc">Booking site and guest automation across an eight-property group.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio5_tag">SaaS</span>
+          <h3>Atlasware</h3>
+          <p data-i18n="folio5_desc">Support and billing automation for a growing B2B software team.</p>
+        </div>
+        <div class="folio-card reveal">
+          <div class="folio-thumb glass"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+          <span class="folio-tag" data-i18n="folio6_tag">Education</span>
+          <h3>Meridian Learning</h3>
+          <p data-i18n="folio6_desc">Enrollment site and student workflows for an online academy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-panel glass reveal">
+        <h2 data-i18n="cta_title">Ready to run your business on one platform?</h2>
+        <p data-i18n="cta_sub">Set up a free workspace in minutes, or talk to our team about a guided migration.</p>
+        <div class="hero-actions" style="margin-bottom:0;">
+          <a href="#contact" class="btn btn-primary" data-i18n="cta_btn1">Get Started Free</a>
+          <a href="#contact" class="btn btn-ghost" data-i18n="cta_btn2">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="contact_tag">Contact</span>
+        <h2 data-i18n="contact_title">Let's talk about your business</h2>
+        <p data-i18n="contact_sub">Tell us where you're stuck and we'll show you how OMNI fits in.</p>
+      </div>
+      <div class="contact-wrap">
+        <div class="contact-info-card glass reveal">
+          <div class="contact-info-item">
+            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6 12 13 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
+            <div>
+              <b data-i18n="info_email_label">Email</b>
+              <a href="mailto:hello@saka-ai.my.id?cc=mlevian@protonmail.com" style="color:var(--muted);font-size:13px;">hello@saka-ai.my.id</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <div>
+              <b data-i18n="info_phone_label">Phone / WhatsApp</b>
+              <a href="https://wa.me/6285111330391" target="_blank" rel="noopener" style="color:var(--muted);font-size:13px;">+62 851-1133-0391</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b data-i18n="info_office_label">Office</b><span>Jl. Sudirman No. 88, Jakarta</span></div>
+          </div>
+          <div class="social-row">
+            <a href="#" aria-label="X / Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.3L18.9 2Z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-3-1.83-3-1.83 0-2.1 1.42-2.1 2.9V21h-4V9Z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          </div>
+        </div>
+
+        <div class="form-card glass reveal">
+          <div class="form-error" id="formError"></div>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-field"><label for="fname" data-i18n="form_name_label">Full name</label><input id="fname" type="text" data-i18n-placeholder="form_name_ph" placeholder="Your name" required /></div>
+              <div class="form-field"><label for="femail" data-i18n="form_email_label">Email</label><input id="femail" type="email" data-i18n-placeholder="form_email_ph" placeholder="you@company.com" required /></div>
+            </div>
+            <div class="form-field" style="margin-bottom:16px;"><label for="fcompany" data-i18n="form_company_label">Company</label><input id="fcompany" type="text" data-i18n-placeholder="form_company_ph" placeholder="Company name" /></div>
+            <div class="form-field" style="margin-bottom:20px;"><label for="fmsg" data-i18n="form_message_label">Message</label><textarea id="fmsg" data-i18n-placeholder="form_message_ph" placeholder="Tell us about your business" required></textarea></div>
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="form_btn_send">Send Message</button>
+            <p class="form-note" data-i18n-html="form_note_html">By submitting, you agree to our <a href="terms.html" style="color:var(--teal);">Terms of Service</a> and <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>.</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <h3 style="margin-bottom:8px;" data-i18n="success_title">Message sent</h3>
+            <p data-i18n="success_desc">Thanks for reaching out — our team will reply within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="nav-brand">
+          <span class="mark sm"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span></span>
+          SAKA <span class="tag">OMNI</span>
+        </a>
+        <p data-i18n="footer_desc">The all-in-one operating system for modern businesses — websites, commerce, automation, and support in one platform.</p>
+        <div class="social-row">
+          <a href="#" aria-label="X / Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.3L18.9 2Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-3-1.83-3-1.83 0-2.1 1.42-2.1 2.9V21h-4V9Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_company_h">Company</h4>
+        <a href="#home" data-i18n="nav_home">Home</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_services_h">Services</h4>
+        <a href="#services" data-i18n="card1_title">Website &amp; Storefront</a>
+        <a href="#services" data-i18n="card2_title">Growth &amp; Analytics</a>
+        <a href="#services" data-i18n="card3_title">Automation Engine</a>
+        <a href="#services" data-i18n="card4_title">Security &amp; Compliance</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_legal_h">Legal</h4>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#contact" data-i18n="footer_contact_support">Contact Support</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SAKA OMNI. <span data-i18n="copyright_text">All rights reserved.</span></span>
+      <div class="legal-links">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
