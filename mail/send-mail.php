@@ -1,13 +1,4 @@
 <?php
-/**
- * =========================================================
- * SAKA OMNI — Endpoint form kontak (dipanggil oleh script.js)
- * =========================================================
- * Menerima POST dari form kontak di index.html, memvalidasi input,
- * lalu mengirim email lewat SMTP menggunakan konfigurasi di config.php.
- * Mengembalikan JSON: { success: bool, message: string }
- */
-
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 
@@ -20,22 +11,28 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 require __DIR__ . '/smtp-mailer.php';
 $config = require __DIR__ . '/config.php';
 
-// --- Ambil & bersihkan input ---
-$name    = trim(strip_tags($_POST['name'] ?? ''));
-$email   = trim($_POST['email'] ?? '');
+$name = trim(strip_tags($_POST['name'] ?? ''));
+$email = trim($_POST['email'] ?? '');
 $company = trim(strip_tags($_POST['company'] ?? ''));
 $message = trim(strip_tags($_POST['message'] ?? ''));
-$lang    = ($_POST['lang'] ?? 'id') === 'en' ? 'en' : 'id';
+$lang = (($_POST['lang'] ?? 'id') === 'en') ? 'en' : 'id';
 
-// --- Validasi dasar ---
+if (empty($config['host']) || empty($config['username']) || empty($config['password']) || empty($config['from_email']) || empty($config['to_email'])) {
+    http_response_code(503);
+    echo json_encode([
+        'success' => false,
+        'message' => $lang === 'en'
+            ? 'SMTP configuration is not complete. Please configure the mail settings before production deployment.'
+            : 'Konfigurasi SMTP belum lengkap. Silakan isi pengaturan email sebelum deployment produksi.',
+    ]);
+    exit;
+}
+
 $errors = [];
 if ($name === '' || mb_strlen($name) > 120) $errors[] = 'name';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'email';
 if ($message === '' || mb_strlen($message) > 5000) $errors[] = 'message';
 
-// Honeypot sederhana opsional: kalau nanti kamu tambah field
-// tersembunyi bernama "website" di form untuk menjebak bot,
-// baris ini akan menolak submission-nya.
 if (!empty($_POST['website'])) {
     http_response_code(422);
     echo json_encode(['success' => false, 'message' => 'Invalid submission.']);
@@ -49,14 +46,13 @@ if ($errors) {
         'message' => $lang === 'en'
             ? 'Please fill in all required fields correctly.'
             : 'Mohon lengkapi semua kolom yang wajib diisi dengan benar.',
-        'fields'  => $errors,
+        'fields' => $errors,
     ]);
     exit;
 }
 
 $subject = "[SAKA OMNI Website] Pesan baru dari {$name}";
-$body =
-    "Pesan baru masuk dari form kontak website SAKA OMNI:\n\n" .
+$body = "Pesan baru masuk dari form kontak website SAKA OMNI:\n\n" .
     "Nama        : {$name}\n" .
     "Email       : {$email}\n" .
     "Perusahaan  : " . ($company !== '' ? $company : '-') . "\n" .
@@ -72,7 +68,7 @@ try {
         $config['to_email'],
         $config['to_name'],
         $config['cc_email'] ?? null,
-        $email, // Reply-To diarahkan ke pengirim form
+        $email,
         $subject,
         $body
     );
